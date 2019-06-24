@@ -12,7 +12,8 @@ var orm = {
     },
 
     insertOnce: function (table, name, cb) {
-        var query = "INSERT INTO " + table + " (burger_name) VALUES (" + name + ");";
+        var query = "INSERT INTO " + table + " (burger_name) VALUES ('" + name + "');";
+        console.log(query);
         connection.query(query, function (err, res) {
             if (err) {
                 throw err;
@@ -24,6 +25,7 @@ var orm = {
 
     updateOne: function (table, id, condition, cb) {
         var query = "UPDATE " + table + " SET devoured = " + condition + "where id = " + id + ";"
+        console.log(query);
         connection.query(query, function (err, res) {
             if (err) {
                 throw err;
